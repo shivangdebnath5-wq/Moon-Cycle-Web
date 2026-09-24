@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Moon Cycle</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="stage" id="stage">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand__emoji" aria-hidden="true">🌙</span>
+        <span class="brand__name">Moon Cycle</span>
+      </div>
+      <button class="icon-btn" id="settings-toggle" aria-expanded="false" aria-controls="settings-panel" title="Settings">
+        ⚙️
+      </button>
+    </header>
+
+    <aside class="settings-panel" id="settings-panel">
+      <h2 class="settings-panel__title">✨ Settings</h2>
+      <label class="setting-row">
+        <span>🔄 Auto-rotate Moon</span>
+        <input type="checkbox" id="setting-autorotate" />
+      </label>
+      <label class="setting-row">
+        <span>🕒 Live update (follow now)</span>
+        <input type="checkbox" id="setting-livemode" />
+      </label>
+      <p class="settings-panel__hint">Live mode keeps the phase synced to the current moment and disables manual date browsing updates from drifting.</p>
+    </aside>
+
+    <main class="layout">
+
+      <section class="hero">
+        <div class="moon-canvas" id="moon-canvas" aria-label="Interactive 3D model of the Moon — drag to rotate"></div>
+
+        <div class="hero__readout">
+          <div class="phase-name">
+            <span class="phase-name__emoji" id="phase-emoji">🌕</span>
+            <h1 class="phase-name__text" id="phase-name">Full Moon</h1>
+          </div>
+          <dl class="stats">
+            <div class="stats__item">
+              <dt>Illumination</dt>
+              <dd id="stat-illumination">100%</dd>
+            </div>
+            <div class="stats__item">
+              <dt>Moon age</dt>
+              <dd id="stat-age">14.8 days</dd>
+            </div>
+            <div class="stats__item">
+              <dt>Trend</dt>
+              <dd id="stat-trend">Waning ↓</dd>
+            </div>
+          </dl>
+          <p class="hint">🖱️ Drag the Moon to look around</p>
+        </div>
+      </section>
+
+      <section class="date-controls" aria-label="Date navigation">
+        <button class="nav-btn" id="btn-prev" title="Previous day">◀</button>
+        <button class="nav-btn nav-btn--today" id="btn-today">📅 Today</button>
+        <input type="date" id="date-input" class="date-input" />
+        <button class="nav-btn" id="btn-next" title="Next day">▶</button>
+        <span class="selected-date" id="selected-date-label"></span>
+      </section>
+
+      <section class="upcoming" aria-label="Upcoming moon phases">
+        <h2 class="section-title">Upcoming phases</h2>
+        <div class="upcoming__grid" id="upcoming-grid"></div>
+      </section>
+
+      <section class="timeline" aria-label="Moon phase timeline">
+        <h2 class="section-title">🗓️ Timeline</h2>
+        <div class="timeline__strip" id="timeline-strip"></div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <span>Moon imagery from NASA's Scientific Visualization Studio · Lunar phase calculated locally, no data leaves your browser</span>
+    </footer>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="moon-texture.js"></script>
+  <script src="astronomy.js"></script>
+  <script src="moon.js"></script>
+  <script src="calendar.js"></script>
+  <script src="settings.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
