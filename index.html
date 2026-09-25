@@ -46,7 +46,6 @@
             <span class="phase-name__emoji" id="phase-emoji">🌕</span>
             <h1 class="phase-name__text" id="phase-name">Full Moon</h1>
           </div>
-          <p class="live-clock" id="live-clock">🕒 --:--:--</p>
           <dl class="stats">
             <div class="stats__item">
               <dt>Illumination</dt>
@@ -70,8 +69,12 @@
         <button class="nav-btn nav-btn--today" id="btn-today">📅 Today</button>
         <input type="date" id="date-input" class="date-input" />
         <button class="nav-btn" id="btn-next" title="Next day">▶</button>
-        <span class="selected-date" id="selected-date-label"></span>
       </section>
+
+      <div class="date-info" aria-live="polite">
+        <p class="live-clock" id="live-clock">🕒 --:--:--</p>
+        <span class="selected-date" id="selected-date-label"></span>
+      </div>
 
       <section class="upcoming" aria-label="Upcoming moon phases">
         <h2 class="section-title">Upcoming phases</h2>
