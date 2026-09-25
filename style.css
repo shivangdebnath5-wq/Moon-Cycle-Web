@@ -175,20 +175,23 @@ body {
 
 .live-clock {
   font-family: var(--font-ui);
-  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
   font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--brass-bright);
+  letter-spacing: 0.06em;
+  color: #ffffff;
   margin: 0;
   line-height: 1.2;
+  text-align: center;
 }
 
 .date-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-top: 10px;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  text-align: center;
 }
 
 .stats {
@@ -256,9 +259,11 @@ body {
 .selected-date {
   width: 100%;
   text-align: center;
-  font-size: 0.85rem;
-  color: var(--silver-dim);
+  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  color: #f2f2f1;
   margin-top: 0;
+  line-height: 1.35;
+  font-family: var(--font-ui);
 }
 
 /* ---------- Section titles ---------- */
