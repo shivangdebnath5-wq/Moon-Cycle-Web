@@ -18,6 +18,7 @@
     statIllumination: document.getElementById("stat-illumination"),
     statAge: document.getElementById("stat-age"),
     statTrend: document.getElementById("stat-trend"),
+    liveClock: document.getElementById("live-clock"),
     dateInput: document.getElementById("date-input"),
     selectedDateLabel: document.getElementById("selected-date-label"),
     btnPrev: document.getElementById("btn-prev"),
@@ -106,6 +107,14 @@
     liveTimer = null;
   }
 
+  function tickClock() {
+    const now = new Date();
+    const hh = String(now.getHours()).padStart(2, "0");
+    const mm = String(now.getMinutes()).padStart(2, "0");
+    const ss = String(now.getSeconds()).padStart(2, "0");
+    els.liveClock.textContent = `🕒 ${hh}:${mm}:${ss}`;
+  }
+
   function wireControls() {
     els.btnPrev.addEventListener("click", () => shiftDay(-1));
     els.btnNext.addEventListener("click", () => shiftDay(1));
@@ -149,6 +158,8 @@
 
     wireControls();
     render();
+    tickClock();
+    setInterval(tickClock, 1000); // real wall-clock time, ticks regardless of live/browse mode
 
     if (liveMode) startLiveTimer();
   }
